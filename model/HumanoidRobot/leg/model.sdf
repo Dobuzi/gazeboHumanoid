@@ -1,0 +1,130 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name='leg'>
+    <link name='upper_leg'>
+      <pose>0 0 .65 0 .2 0</pose>
+      <inertial>
+        <pose>0 0 .5 0 .2 0</pose>
+        <inertia>
+          <ixx>.1</ixx>
+          <ixy>0</ixy>
+          <ixz>1</ixz>
+          <iyy>.1</iyy>
+          <iyz>0</iyz>
+          <izz>.1</izz>
+        </inertia>
+        <mass>1.0</mass>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.05 .1 .4</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.05 .1 .4</size>
+          </box>
+        </geometry>
+        <material>
+          <script>Gazebo/Purple</script>
+        </material>
+      </visual>
+    </link>
+
+    <link name='lower_leg'>
+      <pose>0 0 .3 0 -0.2 0</pose>
+      <inertial>
+        <pose>0 0 .2 0 -0.2 0</pose>
+        <inertia>
+          <ixx>.1</ixx>
+          <ixy>0</ixy>
+          <ixz>1</ixz>
+          <iyy>.1</iyy>
+          <iyz>0</iyz>
+          <izz>.1</izz>
+        </inertia>
+        <mass>1.0</mass>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.05 .1 .3</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.05 .1 .3</size>
+          </box>
+        </geometry>
+        <material>
+          <script>Gazebo/Blue</script>
+        </material>
+      </visual>
+    </link>
+
+    <link name='foot'>
+      <pose>.15 0 .1 0 0 0</pose>
+      <inertial>
+        <pose>.3 0 .1 0 0 0</pose>
+        <inertia>
+          <ixx>.03</ixx>
+          <ixy>.05</ixy>
+          <ixz>1</ixz>
+          <iyy>.01</iyy>
+          <iyz>0</iyz>
+          <izz>.01</izz>
+        </inertia>
+        <mass>20.0</mass>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>.4 .2 .1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>.4 .2 .1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>Gazebo/Yellow</script>
+        </material>
+      </visual>
+    </link>
+
+    <static>false</static>
+
+    <joint name='upper_leg_lower_leg' type='revolute'>
+      <pose>0 0 .16 0 0 0</pose>
+      <parent>upper_leg</parent>
+      <child>lower_leg</child>
+      <axis>
+        <limit>
+          <lower>0.1</lower>
+          <upper>0.3</upper>
+        </limit>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <joint name='lower_leg_foot' type='revolute'>
+      <pose>-0.1 0 .05 0 0 0</pose>
+      <parent>lower_leg</parent>
+      <child>foot</child>
+      <axis>
+        <limit>
+          <lower>0.1</lower>
+          <upper>0.3</upper>
+        </limit>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+  </model>
+</sdf>
