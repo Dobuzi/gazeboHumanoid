@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name='humanoid_robot'>
+    <include>
+      <uri>model://body</uri>
+      <pose>.1 0 .9 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://leg</uri>
+      <pose>0 .2 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://leg2</uri>
+      <pose>0 -0.2 0 0 0 0</pose>
+    </include>
+
+    <joint name='body_left_leg' type='revolute'>
+      <pose>0 0 .2 0 0 0</pose>
+      <parent>body::body</parent>
+      <child>leg::upper_leg</child>
+      <axis>
+        <limit>
+          <lower>-0.1</lower>
+          <upper>.1</upper>
+        </limit>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <joint name='body_right_leg' type='revolute'>
+      <pose>0 0 .2 0 0 0</pose>
+      <parent>body::body</parent>
+      <child>leg2::upper_leg</child>
+      <axis>
+        <limit>
+          <lower>-0.1</lower>
+          <upper>.1</upper>
+        </limit>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+  </model>
+</sdf>

@@ -1,15 +1,15 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
-  <model name='Humanoid'>
+  <model name='body'>
     <link name='body'>
-      <pose>0 0 .8 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
-        <mass>20.0</mass>
+        <mass>1.0</mass>
         <pose>0 0 1 0 0 0</pose>
         <inertia>
-          <ixx>.5</ixx>
-          <iyy>1.0</iyy>
-          <izz>.1</izz>
+          <ixx>5</ixx>
+          <iyy>1</iyy>
+          <izz>1</izz>
         </inertia>
       </inertial>
       <collision name='collision'>
