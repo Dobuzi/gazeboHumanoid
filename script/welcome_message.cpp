@@ -3,7 +3,7 @@
 namespace gazebo {
   class WorldPluginHumanoid : public WorldPlugin {
     public: WorldPluginHumanoid() : WorldPlugin() {
-      printf("Hello World!\n");
+      printf("Welcome to JW Kim's world! It's my apartment.\n");
     }
 
     public: void Load(physics::WorldPtr _world, sdf::ElementPtr _sdf) {
